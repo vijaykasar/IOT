@@ -33,12 +33,13 @@ app.get('/',function(req,res){
   con.connect(function(err)
   {
     if(err) throw err;
-con.query('SELECT * FROM organisation WHERE org_id = ?', 1, function(err,result)
-{
-  console.log("RESULT:" +JSON.stringify(result));
-  res.send(result);
+// con.query('SELECT * FROM organisation WHERE org_id = ?', 1, function(err,result)
+// {
+//   console.log("RESULT:" +JSON.stringify(result));
+//   res.send(result);
 
-})
+// })
+res.send("welcome....");
   })
 })
 
