@@ -1,24 +1,16 @@
-var express = require('express');
-var fs = require("fs");
-var bodyParser = require("body-parser");
-var path = require("path");
-
-
-var app = express();
-var port = 7081;
-
-
-console.log(__dirname);
-app.use(express.static(path.join(__dirname, '/')));
-app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
-
-
-app.listen(port);
-console.log('Server started! At http://localhost:' + port);
-
-
-
-app.get('/settings/', function(req, res) {
-    
+var http = require('http');
+ 
+var port = 8081;
+ 
+var s = http.createServer();
+s.on('request', function(request, response) {
+    response.writeHead(200);
+    console.log(request.method);
+    console.log(request.headers);
+    console.log(request.url);
+    response.write('hi......');
+    response.end();
 });
+ 
+s.listen(port);
+console.log('Browse to http://127.0.0.1:' + port);
