@@ -1,7 +1,7 @@
 var http = require('http');
  
 var port = 8081;
- 
+ var a = "Welcome";
 var s = http.createServer();
 s.on('request', function(request, response) {
     response.writeHead(200);
@@ -9,6 +9,7 @@ s.on('request', function(request, response) {
     console.log(request.headers);
     console.log(request.url);
     response.write('hi......');
+    response.send(a);
     response.end();
 });
  
